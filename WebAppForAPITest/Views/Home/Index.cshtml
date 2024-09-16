@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		font-family: 'Jost', sans-serif;
+	@*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*@ @*background: linear-gradient(to bottom, #E2C9FA, #EEE0FB, #E2C9FA); @*LIGHT PINK*@ background: linear-gradient(to bottom, #A9F1DF, #BFF098 );
+	@*LIGHT PINK*@
+	}
+</style>
+
+<div class="text-center">
+   
+	<label>
+		<img for="chk" aria-hidden="true" src="~/images/logo transparent bg.png"
+			 class="center"
+			 style="justify-content: center;object-fit:contain; width:70%;" />
+	</label>
+
+	<table class="center" aria-hidden="true" style="margin-left:auto; margin-right: auto; border-spacing: 30px;">
+		<tr>
+			<td colspan="2" style="padding:15px;">
+				<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="PersonalInfoForm">
+					<button class="btn bg-white" style=" width:100%;">Personal Info Form</button>
+				</a>
+			</td>			
+		</tr>
+		<tr>
+			<td  style="padding:15px;">
+				<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="OralExamForm">
+					<button class="btn bg-white" style=" width:100%;">Oral Exam Form</button>
+				</a>
+			</td>
+			<td  style="padding:15px;">
+				<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="OralSurgeonForm">
+					<button class="btn bg-white" style=" width:100%;">Oral Surgeon Form</button>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding:15px;">
+				<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="BreastExamForm">
+				<button class="btn bg-white" style=" width:100%;">Breast Exam Form</button>
+				</a>
+			</td>
+			<td style="padding:15px;">
+				<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="BreastSurgeonForm">
+				<button class="btn bg-white" style=" width:100%;">Breast Surgeon Form</button>
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding:15px;">
+				<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CervixExamForm">
+				<button class="btn bg-white" style=" width:100%;">Cervix Exam Form</button>
+				</a>
+			</td>
+			<td style="padding:15px;">
+				<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CervixSurgeonForm">
+				<button class="btn bg-white" style=" width:100%;">Cervix Surgeon Form</button>
+				</a>
+			</td>
+		</tr>
+	</table>
+
+</div>

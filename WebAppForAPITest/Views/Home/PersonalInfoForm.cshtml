@@ -1,0 +1,211 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model SwapnapurtiWebsite.Models.PersonalInfoFormModel
+
+@{
+    ViewData["Title"] = "Personal Info Form";
+}
+
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		font-family: 'Jost', sans-serif;
+	@*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*@ @*background: linear-gradient(to bottom, #E2C9FA, #EEE0FB, #E2C9FA); @*LIGHT PINK*@ background: linear-gradient(to bottom, #A9F1DF, #BFF098 );
+	@*LIGHT PINK*@
+	}
+</style>
+
+<div class="text-center">
+
+<label>
+	<img for="chk" aria-hidden="true" src="~/images/logo transparent bg.png"
+		 class="center"
+		 style="justify-content: center;object-fit:contain; width:40%;" />
+</label>
+
+
+<table class="center" aria-hidden="true" style="margin-left:auto; margin-right: auto; border-spacing: 30px;">
+	<tr>
+		<th colspan="2" style="padding:15px;">
+				<label class="btn bg-white" style=" width:100%;"><b>Personal Info Form Details</b></label>
+		</th>
+
+	</tr>
+	<tr>
+		<td style="padding:15px;">
+				<label class="btn bg-white" style="color:red; text-align:right; width:100%;">Unique ID :</label>
+		</td>
+		<td style="padding:15px;">
+			<input asp-for="UniqueID" class="btn bg-white" placeholder="Enter UNIQUE ID" style=" width:100%;" value="@ViewData["UID"]"  id="uniqueId" />
+		</td>
+	</tr>
+	<tr>
+			<td style="padding:15px;">
+				<label class="btn bg-white" style="color:red; text-align:right; width:100%;">Village :</label>
+			</td>
+			<td style="padding:15px;">
+				<select asp-for="Village" class="btn bg-white" placeholder="select Village" style=" width:100%;" id="village">
+					<option value="">--Select VILLAGE--</option>
+					<option value="101">101-Abanpalli</option>
+					<option value="102">102-Aldandi</option>
+					<option value="114">114-Zenda</option>
+					<option value="115">115-Sironcha</option>
+				</select>
+			</td>
+	</tr>
+	<tr>
+			<td style="padding:15px;">
+				<label class="btn bg-white" style="color:red;text-align:right; width:100%;">Name :</label>
+			</td>
+			<td style="padding:15px;">
+				<input asp-for="Name" class="btn bg-white" placeholder="Enter NAME" style=" width:100%;" id="name" />
+			</td>
+	</tr>
+		<tr>
+			<td style="padding:15px;">
+				<label class="btn bg-white" style="color:red;text-align:right; width:100%;">Sex :</label>
+			</td>
+			<td style="padding:15px;">
+				<select asp-for="Sex" class="btn bg-white" placeholder="select SEX" style=" width:100%;" id="sex" >
+					<option value="">--Select SEX--</option>
+					<option value="1">1-Male</option>
+					<option value="2">2-Female</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding:15px;">
+				<label class="btn bg-white" style="color:red; text-align:right; width:100%;">Age :</label>
+			</td>
+			<td style="padding:15px;">
+				<input asp-for="Age" class="btn bg-white" placeholder="Enter AGE" style=" width:100%;" id="age" />
+			</td>
+		</tr>
+		<tr>
+			<td style="padding:15px;">
+				<label class="btn bg-white" style="color:red; text-align:right; width:100%;">Contact no. :</label>
+			</td>
+			<td style="padding:15px;">
+				<input asp-for="ContactNo" class="btn bg-white" placeholder="Enter CONTACT NO." style=" width:100%;" id="contactNo" />
+			</td>
+		</tr>
+		<tr>
+			<td style="padding:15px;">
+				<label class="btn bg-white" style="color:red;text-align:right; width:100%;">Oral Symptoms :</label>
+			</td>
+			<td style="padding:15px;">
+				<select asp-for="OralSymptoms" class="btn bg-white" placeholder="select Oral symptoms" style=" width:100%;" id="oralSymptoms">
+					<option value="">--Select--</option>
+					<option value="1">1-Yes</option>
+					<option value="2">2-No</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding:15px;">
+				<label class="btn bg-white" style="color:red;text-align:right; width:100%;">Breast Symptoms :</label>
+			</td>
+			<td style="padding:15px;">
+				<select asp-for="BreastSymptoms" class="btn bg-white" placeholder="select breast symptoms" style=" width:100%;" id="breastSymptoms">
+					<option value="">--Select--</option>
+					<option value="1">1-Yes</option>
+					<option value="2">2-No</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="padding:15px;">
+				<label class="btn bg-white" style="color:red;text-align:right; width:100%;">Cervix Symptoms :</label>
+			</td>
+			<td style="padding:15px;">
+				<select asp-for="CervixSymptoms" class="btn bg-white" placeholder="select cervix symptoms" style=" width:100%;" id="cervixSymptoms">
+					<option value="">--Select--</option>
+					<option value="1">1-Yes</option>
+					<option value="2">2-No</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" style="padding:15px;">
+				<button class="btn bg-white" style=" width:100%;" id="submitButton"><b>Submit</b></button>
+			</td>
+
+		</tr>
+</table>
+
+</div>
+
+@section Scripts
+{
+<script>
+
+	$("#submitButton").click(function () {
+		var strformdata = {
+			'UniqueID': $('#uniqueId').val(),
+				'Village': $('#village option:selected').text(),
+			'Name': $('#name').val(),
+				'Sex': $('#sex option:selected').text(),
+			'Age': $('#age').val(),
+			'ContactNo': $('#contactNo').val(),
+				'OralSymptoms': $('#oralSymptoms option:selected').text(),
+				'BreastSymptoms': $('#breastSymptoms option:selected').text(),
+				'CervixSymptoms': $('#cervixSymptoms option:selected').text(),
+			'DEOName': '',
+			'DEODate': '',
+			'SavedAtServer': '1'
+		}
+		$.ajax({
+			url: '@Url.Action("SavePersonalInfoForm")',
+			type: 'GET',
+			dataType: 'json',
+			contentType: 'application/json; charset=utf-8',			
+			data: { formdata: JSON.stringify(strformdata) },
+			success: function (result) {
+
+				/*const messageArray = result[0].split(";");
+				console.log(messageArray[0]);
+				document.getElementById("staff-modal-message").innerHTML = messageArray[1];
+				console.log("#staff-modal-message - " + result[0]);
+				$("#staffModal").modal("show");
+				console.log("#staff-modal show");
+				*/
+
+					const messageArray = result[0].split(";");
+
+				if (messageArray[0] == "SUCCESS") {
+						alert("Personal Info Form Data Saved Successfully");
+					console.log("SUCCESS");
+					console.log("New mode");
+					$('#uniqueID').val("");
+					$('#village').val("");
+					$('#name').val("");
+					$('#sex').val("");
+					$('#age').val("");
+					$('#contactNo').val("");
+					$('#oralSymptoms').val("");
+					$('#breastSymptoms').val("");
+					$('#cervixSymptoms').val("");					
+				}
+				else {
+						alert("Data did not saved. Error while saving data.");
+					console.log("Operation unsuccessful");
+				}
+			},
+			error: function () {
+				alert("Error while inserting data");
+			}
+		});
+	});
+
+	
+
+</script>
+}

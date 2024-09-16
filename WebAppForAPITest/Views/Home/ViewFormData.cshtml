@@ -1,0 +1,322 @@
+﻿<style>
+	body {
+		margin: 0;
+		padding: 0;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		font-family: 'Jost', sans-serif;
+	@*background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);*@ @*background: linear-gradient(to bottom, #E2C9FA, #EEE0FB, #E2C9FA); @*LIGHT PINK*@ background: linear-gradient(to bottom, #A9F1DF, #BFF098 );
+	@*LIGHT PINK*@
+	}
+	td, th {
+		padding:15px;
+	}
+</style>
+
+<div class="text-center">
+
+	<ul class="nav nav-tabs" role="tablist">
+			  <li class="nav-item" role="presentation">
+				<a class="nav-link active" data-bs-toggle="tab" href="#personalInfo" aria-selected="true" role="tab">Personal Info Form</a>
+			  </li>
+			  <li class="nav-item" role="presentation">
+				<a class="nav-link" data-bs-toggle="tab" href="#oralExam" aria-selected="false" role="tab">Oral Exam Form</a>
+			  </li>
+			  <li class="nav-item" role="presentation">
+				<a class="nav-link" data-bs-toggle="tab" href="#oralSurgeon" aria-selected="false" role="tab" tabindex="-1">Oral Surgeon Form</a>
+			  </li>		  			 
+			</ul>
+
+	<div id="myTabContent" class="tab-content">
+		<div class="tab-pane fade active show" id="personalInfo" role="tabpanel">
+			<table style="margin-left:auto; margin-right: auto; border-spacing: 30px;">
+				<tr>
+					<td>
+						<label>Select date: </label>
+					</td>
+					<td>
+						<input type="date" id="DatePersonalInfo" />
+					</td>
+					<td>
+						<button id="searchDataPersonalInfo">Search data</button>
+					</td>
+				</tr>
+			</table>
+			
+			<table class=" bg-white" id="PersonalInfoTable"
+			style="border-block:dashed; margin-left:auto; margin-right: auto; border-spacing: 30px;display: block;    
+					overflow-x: auto;white-space: nowrap;">
+			<thead>
+					<tr>
+						<th>
+							Unique ID
+						</th>
+						<th>
+							Village
+						</th>
+						<th>
+							Name
+						</th>
+						<th>
+							Sex
+						</th>
+						<th>
+							Age
+						</th>
+						<th>
+							Contact No.
+						</th>
+						<th>
+							Oral Symptoms
+						</th>
+						<th>
+							Breast Symptoms
+						</th>
+						<th>
+							Cervix Symptoms
+						</th>
+						<th>
+							DEO Name
+						</th>
+						<th>
+							DEO Date
+						</th>
+					</tr>
+			</thead>
+				
+			</table>
+			
+		</div>
+		<div class="tab-pane fade" id="oralExam" role="tabpanel">
+			<table style="margin-left:auto; margin-right: auto; border-spacing: 30px;">
+				<tr>
+					<td>
+						<label>Select date: </label>
+					</td>
+					<td>
+						<input type="date" id="DateOralExam" />
+					</td>
+					<td>
+						<button id="searchDataOralExam">Search data</button>
+					</td>
+				</tr>
+			</table>
+
+			<table class=" bg-white" id="OralExamTable"
+				   style="border-block:dashed; margin-left:auto; margin-right: auto; border-spacing: 30px;display: block;
+					overflow-x: auto;white-space: nowrap;">
+				<thead>
+					<tr>
+						<th>
+							Unique ID
+						</th>
+						<th>
+							Village
+						</th>
+						<th>
+							Name
+						</th>
+						<th>
+							Sex
+						</th>
+						<th>
+							Age
+						</th>
+						<th>
+							Contact No.
+						</th>
+						<th>
+							Oral Hygiene
+						</th>
+						<th>
+							Screen Positive
+						</th>
+						<th>
+							Lesion type
+						</th>
+						<th>
+							DEO Name
+						</th>
+						<th>
+							DEO Date
+						</th>
+					</tr>
+				</thead>
+
+			</table>
+		</div>
+		<div class="tab-pane fade" id="oralSurgeon" role="tabpanel">
+			<table style="margin-left:auto; margin-right: auto; border-spacing: 30px;">
+				<tr>
+					<td>
+						<label>Select date: </label>
+					</td>
+					<td>
+						<input type="date" id="DateOralSurgeon" />
+					</td>
+					<td>
+						<button id="searchDataOralSurgeon">Search data</button>
+					</td>
+				</tr>
+			</table>
+
+			<table class=" bg-white" id="OralSurgeonTable"
+				   style="border-block:dashed; margin-left:auto; margin-right: auto; border-spacing: 30px;display: block;
+					overflow-x: auto;white-space: nowrap;">
+				<thead>
+					<tr>
+						<th>
+							Unique ID
+						</th>
+						<th>
+							Village
+						</th>
+						<th>
+							Name
+						</th>
+						<th>
+							Sex
+						</th>
+						<th>
+							Age
+						</th>
+						<th>
+							Contact No.
+						</th>
+						<th>
+							Screen Positive
+						</th>
+						<th>
+							Referred for further treatment
+						</th>
+						<th>
+							Surgeon remarks
+						</th>
+						<th>
+							DEO Name
+						</th>
+						<th>
+							DEO Date
+						</th>
+					</tr>
+				</thead>
+
+			</table>
+		</div>
+	
+	</div>
+</div>
+
+
+@section Scripts
+	   {
+	<script>
+
+		$("#searchDataPersonalInfo").click(function () {
+			var myDate = new Date(document.getElementById("DatePersonalInfo").value);
+			var dayOfDate = myDate.getDate();
+			var monthOfDate = myDate.getMonth() + 1;
+			var yearOfDate = myDate.getFullYear();
+
+			//console.log(yearOfDate + '-' + monthOfDate.toString().padStart(2, "0") + '-' + dayOfDate.toString().padStart(2, "0"));
+
+			var strformdata = {
+				'Code': 'PersonalInfoForm',
+				'Value': yearOfDate + '-' + monthOfDate.toString().padStart(2, "0") + '-' + dayOfDate.toString().padStart(2, "0")
+			}
+			$.ajax({
+				url: '@Url.Action("GetFormDataAgainstDate")',
+				type: 'GET',
+				dataType: 'json',
+				contentType: 'application/json; charset=utf-8',
+				data: { formdata: JSON.stringify(strformdata) },
+				success: function (result) {
+
+					if (result != "") {
+						$("#PersonalInfoTable tr").remove();
+						$('#PersonalInfoTable').append(result);
+					}
+					else {
+						alert("No data found");
+						console.log("Operation unsuccessful");
+					}
+				},
+				error: function () {
+					alert("Error while retrieving data");
+				}
+			});
+		});
+
+		$("#searchDataOralExam").click(function () {
+			var myDate = new Date(document.getElementById("DateOralExam").value);
+			var dayOfDate = myDate.getDate();
+			var monthOfDate = myDate.getMonth() + 1;
+			var yearOfDate = myDate.getFullYear();
+
+			//console.log(yearOfDate + '-' + monthOfDate.toString().padStart(2, "0") + '-' + dayOfDate.toString().padStart(2, "0"));
+
+			var strformdata = {
+				'Code': 'OralExamForm',
+				'Value': yearOfDate + '-' + monthOfDate.toString().padStart(2, "0") + '-' + dayOfDate.toString().padStart(2, "0")
+			}
+			$.ajax({
+				url: '@Url.Action("GetFormDataAgainstDate")',
+				type: 'GET',
+				dataType: 'json',
+				contentType: 'application/json; charset=utf-8',
+				data: { formdata: JSON.stringify(strformdata) },
+				success: function (result) {
+
+					if (result != "") {
+						$("#OralExamTable tr").remove();
+						$('#OralExamTable').append(result);
+					}
+					else {
+						alert("No data found");
+						console.log("Operation unsuccessful");
+					}
+				},
+				error: function () {
+					alert("Error while retrieving data");
+				}
+			});
+		});
+
+		$("#searchDataOralSurgeon").click(function () {
+			var myDate = new Date(document.getElementById("DateOralSurgeon").value);
+			var dayOfDate = myDate.getDate();
+			var monthOfDate = myDate.getMonth() + 1;
+			var yearOfDate = myDate.getFullYear();
+
+			//console.log(yearOfDate + '-' + monthOfDate.toString().padStart(2, "0") + '-' + dayOfDate.toString().padStart(2, "0"));
+
+			var strformdata = {
+				'Code': 'OralSurgeonForm',
+				'Value': yearOfDate + '-' + monthOfDate.toString().padStart(2, "0") + '-' + dayOfDate.toString().padStart(2, "0")
+			}
+			$.ajax({
+				url: '@Url.Action("GetFormDataAgainstDate")',
+				type: 'GET',
+				dataType: 'json',
+				contentType: 'application/json; charset=utf-8',
+				data: { formdata: JSON.stringify(strformdata) },
+				success: function (result) {
+
+					if (result != "") {
+						$("#OralSurgeonTable tr").remove();
+						$('#OralSurgeonTable').append(result);
+					}
+					else {
+						alert("No data found");
+						console.log("Operation unsuccessful");
+					}
+				},
+				error: function () {
+					alert("Error while retrieving data");
+				}
+			});
+		});
+
+	</script>
+}

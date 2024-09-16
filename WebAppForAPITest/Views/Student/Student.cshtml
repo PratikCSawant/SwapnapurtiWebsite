@@ -1,0 +1,26 @@
+﻿@model IEnumerable<WebAppForAPITest.Models.StudentModel>
+
+<br />
+<br />
+<table class="table">
+    <tdead>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            
+        </tr>
+    </tdead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StudentId</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
