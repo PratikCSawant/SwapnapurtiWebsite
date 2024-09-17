@@ -1,28 +1,15 @@
-# AWS CodeBuild spec to build an Elastic Beanstalk artifact for AWS CodePipeline to deploy
-version: 0.2    
-phases:   
+version: 0.2
+phases:
   install:
     runtime-versions:
       dotnet: 8.0
-      
-  pre_build:
-    commands:
-      - echo "Restoring dependencies...`date`"
-      - dotnet restore
-      
   build:
     commands:
-      - echo "Build started on `date`"
-      - dotnet build WebAppForAPITest/ --configuration Release --no-restore
-     
-      
+      - dotnet build SwapnapurtiWebsite.csproj
   post_build:
     commands:
-      - echo "Publish started on `date`"
-      - dotnet publish WebAppForAPITest/ --configuration Release --output ./      
-
-artifacts:
+      - dotnet publish -r linux-x64 SwapnapurtiWebsite.csproj
+artifacts:  
   files:
-    - '.WebAppForAPITest/**/*'
-  base-directory: './'
-  discard-paths: no
+    - src/bin/Debug/net8.0/linux-x64/publish/**/*
+  discard-paths: yes
