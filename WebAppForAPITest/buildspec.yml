@@ -3,26 +3,20 @@ version: 0.2
 phases:   
   install:
     runtime-versions:
-      dotnet: 8.0
-      
+      dotnet: 8.0      
   pre_build:
     commands:
       - echo "Restoring dependencies...`date`"
-      - dotnet restore
-      
+      - dotnet restore      
   build:
     commands:
       - echo "Build started on `date`"
-      - dotnet build --configuration Release --no-restore
-     
-      
+      - dotnet build SwapnapurtiWebsite.csproj          
   post_build:
     commands:
       - echo "Publish started on `date`"
-      - dotnet publish --configuration Release --output ./      
-
+      - dotnet publish -r linux-x64 SwapnapurtiWebsite.csproj
 artifacts:
   files:
-    - './**/*'
-  base-directory: './'
-  discard-paths: no
+    - /bin/Debug/net8.0/linux-x64/publish/**/*
+  discard-paths: yes
