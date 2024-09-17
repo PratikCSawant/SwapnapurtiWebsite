@@ -5,7 +5,7 @@ phases:
       dotnet: 8.0
   build:
     commands:
-      - dotnet build SwapnapurtiWebsite.csproj
+      - dotnet build WebAppForAPITest/SwapnapurtiWebsite.csproj
   post_build:
     commands:
       - dotnet publish -r linux-x64 SwapnapurtiWebsite.csproj
