@@ -11,12 +11,12 @@ phases:
   build:
     commands:
       - echo "Build started on `date`"
-      - dotnet build SwapnapurtiWebsite.csproj          
+      - dotnet build WebAppForAPITest/SwapnapurtiWebsite.csproj          
   post_build:
     commands:
       - echo "Publish started on `date`"
-      - dotnet publish -r linux-x64 SwapnapurtiWebsite.csproj
+      - dotnet publish -r linux-x64 WebAppForAPITest/SwapnapurtiWebsite.csproj
 artifacts:
   files:
-    - /bin/Debug/net8.0/linux-x64/publish/**/*
+    - WebAppForAPITest//bin/Debug/net8.0/linux-x64/publish/**/*
   discard-paths: yes
