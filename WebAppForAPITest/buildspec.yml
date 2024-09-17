@@ -11,5 +11,5 @@ phases:
       - dotnet publish -r linux-x64 WebAppForAPITest/SwapnapurtiWebsite.csproj
 artifacts:  
   files:
-    - WebAppForAPITest/bin/Debug/net8.0/publish/**/*
+    - WebAppForAPITest/bin/Release/net8.0/linux-x64/**/*
   discard-paths: yes
